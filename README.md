@@ -15,7 +15,7 @@
 
 Airtest运行以后的界面如下图所示。
 
-![image-20210402191152680](images\image-20210402191152680.png)
+![image-20210402191152680](images/image-20210402191152680.png)
 
 ### 1、连接手机
 
@@ -23,15 +23,15 @@ Airtest运行以后的界面如下图所示。
 
 启动Airtest以后，把Android手机连接到电脑上，点击下图方框中的`刷新 ADB`：
 
-![image-20210402195558327](images\image-20210402195558327.png)
+![image-20210402195558327](images/image-20210402195558327.png)
 
 此时在Airtest界面右上角应该能够看到手机的信息，如下图所示。
 
-![image-20210402195711329](images\image-20210402195711329.png)
+![image-20210402195711329](images/image-20210402195711329.png)
 
 点击`connect`按钮，此时可以在界面上看到手机的界面，并且当你手动操作手机屏幕时，Airtest中的手机画面实时更新。如下图所示。注意需要保证无可奉告App在当前界面。
 
-![image-20210402200029972](images\image-20210402200029972.png)
+![image-20210402200029972](images/image-20210402200029972.png)
 
 对于某些手机，例如小米，在第一次使用Airtest时，请注意手机上将会弹出提示，询问你是否允许安装App，此时需要点击允许按钮。
 
@@ -39,13 +39,13 @@ Airtest运行以后的界面如下图所示。
 
 点击左上角文件——打开脚本：
 
-![image-20210402200810333](images\image-20210402200810333.png)
+![image-20210402200810333](images/image-20210402200810333.png)
 
-![image-20210402200453813](images\image-20210402200453813.png)
+![image-20210402200453813](images/image-20210402200453813.png)
 
 点击需要使用的air文件，即可在脚本编辑窗看到相应的代码。
 
-![image-20210402200925927](C:\Users\王为泽\AppData\Roaming\Typora\typora-user-images\image-20210402200925927.png)
+![image-20210402200925927](images/image-20210402200925927.png)
 
 ### 3、修改参数
 
@@ -63,7 +63,7 @@ Airtest运行以后的界面如下图所示。
 
 按照提示在列表中写入帖子ID，以爬取#000158，#024582，#019327为例：
 
-![image-20210402202140669](images\image-20210402202140669.png)
+![image-20210402202140669](images/image-20210402202140669.png)
 
 点击运行即可。后续同上。
 
@@ -71,7 +71,7 @@ Airtest运行以后的界面如下图所示。
 
 模式类似于wkfg_batch，写上起止ID即可。如爬取长文本#004191，需要令begin_id=4191，end_id=4192：
 
-![image-20210402202800982](images\image-20210402202800982.png)
+![image-20210402202800982](images/image-20210402202800982.png)
 
 这个模式会比较慢，而且因为测试用例少，可能会有未知bug。
 
@@ -137,7 +137,7 @@ poco('bg_mission', type='Button')
 poco(textMatches='^据点.*$', type='Button', enable=True)
 ```
 
-![../_images/hunter-poco-select-simple.png](images\hunter-poco-select-simple.png)
+![../_images/hunter-poco-select-simple.png](images/hunter-poco-select-simple.png)
 
 #### 相对选择器(Relative Selector)
 
@@ -148,7 +148,7 @@ poco(textMatches='^据点.*$', type='Button', enable=True)
 poco('main_node').child('list_item').offspring('item')
 ```
 
-![../_images/hunter-poco-select-relative.png](images\hunter-poco-select-relative.png)
+![../_images/hunter-poco-select-relative.png](images/hunter-poco-select-relative.png)
 
 以及click等方法。
 
@@ -293,7 +293,7 @@ def wkfg_spider(begin_id, end_id):
 
 这个函数得名的原因是楼层控件的类型是androidx.cardview.widget.CardView。
 
-![image-20210403120328361](images\image-20210403120328361.png)
+![image-20210403120328361](images/image-20210403120328361.png)
 
 本质上也是一个循环，进入帖子后，要在一个循环体内将所有楼层信息抓取下来。这是代码中最有挑战性的工作。基本思路是：使用swipe方法不断下滑，期间通过访问每个androidx.cardview.widget.CardView的子控件爬取各楼层信息直到帖子结束。
 
@@ -303,11 +303,11 @@ def wkfg_spider(begin_id, end_id):
 
 每个楼层的结构如下：
 
-![image-20210403142832591](images\image-20210403142832591.png)
+![image-20210403142832591](images/image-20210403142832591.png)
 
 有楼层、昵称、发帖时间、赞数、内容等基本信息。有时会有额外信息：
 
-![image-20210403143040820](images\image-20210403143040820.png)
+![image-20210403143040820](images/image-20210403143040820.png)
 
 回复对象的信息。
 
